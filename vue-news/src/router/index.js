@@ -1,25 +1,43 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import NewsView from '@/views/NewsView.vue';
+import AskView from '@/views/AskView.vue';
+import JobsView from '@/views/JobsView.vue';
+import UserView from '@/views/UserView.vue';
+import ItemView from '@/views/ItemView.vue';
 
 Vue.use(VueRouter);
 
-const rotuer = new VueRouter({
+export const router = new VueRouter({
+  mode: 'history',
   routes: [
+    {
+      path: '/',
+      redirect: '/news'
+    },
     {
       /**
        * @param path: url
        * @param components: url 주소로 갔을 때 표시될 컴포넌트
        */
       path: '/news',
-      components: ''
+      component: NewsView
     },
     {
       path: '/ask',
-      components: ''
+      component: AskView
     },
     {
       path: '/jobs',
-      components: ''
+      component: JobsView
+    },
+    {
+      path: '/user',
+      component: UserView
+    },
+    {
+      path: '/item',
+      component: ItemView
     },
   ]
 });
