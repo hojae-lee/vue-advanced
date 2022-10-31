@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Callback</title>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <div>jquery ajax</div>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script>
+      function callAjax() {
+        return new Promise(function(resolve, reject) {
+          $.ajax({
+            url: 'https://api.hnpwa.com/v0/news/1.json',
+            success: data => {
+              // 중요
+              resolve(data);
+            }
+          });
+        });
+      }
+      function fetchData() {
+        let result = [];
+
+        // $.ajax({
+        //   url: 'https://api.hnpwa.com/v0/news/1.json',
+        //   success: data => {
+        //     console.log('데이터 호출 결과', data); // 이게 더 먼저 나옴 ^.^
+        //     result = data;
+        //     console.log('함수 결과(정답)', result);
+        //   }
+        // });
+        // console.log('함수 결과(실패)', result);
+
+        callAjax()
+          .then(data => {
+            console.log('데이터 호출 결과', data); // 이게 더 먼저 나옴 ^.^
+            result = data;
+            console.log('함수 결과(정답)', result);
+          })
+          .catch(err => console.log(err))
+      }
+      fetchData();
+    </script>
+
+  </body>
+</html>
