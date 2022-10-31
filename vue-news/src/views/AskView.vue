@@ -1,12 +1,23 @@
 <template>
   <div>
-    ask
+    <div v-for="(item, idx) in ask" :key=idx>{{ item.title }}</div>
   </div>
 </template>
 
 <script>
-export default {
+import { fetchAskList } from '@/api'
 
+export default {
+  data() {
+    return {
+      ask: []
+    }
+  },
+  created() {
+    fetchAskList()
+    .then(res => this.ask = res.data)
+    .catch(err => console.log(err))
+  }
 }
 </script>
 
