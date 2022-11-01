@@ -1,22 +1,20 @@
 <template>
   <div>
-    <div v-for="user in users">{{ user.title }}</div>
+    <div v-for="user in news">{{ user.title }}</div>
   </div>
 </template>
 
 <script>
-import { fetchNewsList } from '@/api';
+import { mapState, mapActions } from 'vuex';
 
 export default {
-  data() {
-    return {
-      users: []
-    }
+  computed: {
+    ...mapState({
+      news: state => state.news
+    })
   },
   created() {
-    fetchNewsList()
-    .then(res => this.users = res.data)
-    .catch(err => console.log(err))
+    this.$store.dispatch('FETCH_NEWS');
   }
 }
 </script>

@@ -5,18 +5,19 @@
 </template>
 
 <script>
-import { fetchJobsList } from '@/api'
+import { mapState } from 'vuex';
 
 export default {
-  data() {
-    return {
-      jobs: []
-    }
+  computed: {
+    ...mapState({
+      jobs: state => state.jobs
+    })
+    // jobs() {
+    //   return this.$store.state.jobs;
+    // }
   },
   created() {
-    fetchJobsList()
-    .then(res => this.jobs = res.data)
-    .catch(err => console.log(err))
+    this.$store.dispatch('FETCH_JOB');
   }
 }
 </script>
