@@ -23,8 +23,8 @@ function fetchUserInfo(username) {
   return axios.get(`https://api.hnpwa.com/v0/user/${username}.json`);
 }
 
-function fetchItemInfo(id) {
-  return axios.get(`https://api.hnpwa.com/v0/item/${id}.json`);
+function fetchItemInfo(name) {
+  return axios.get(`https://api.hnpwa.com/v0/item/${name}.json`);
 }
 
 export {

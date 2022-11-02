@@ -21,8 +21,8 @@ export default {
       .then(({ data }) => commit('SET_USER', data))
       .catch(err => console.log(err))
   },
-  FETCH_ITEM({ commit }, id) {
-    fetchItemInfo(id)
+  FETCH_ITEM({ commit }, name) {
+    fetchItemInfo(name)
       .then(({ data }) => commit('SET_ITEM', data))
       .catch(err => console.log(err))
   }
