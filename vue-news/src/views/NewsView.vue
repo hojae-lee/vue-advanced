@@ -1,11 +1,17 @@
 <template>
   <div>
-    <div v-for="user in news">{{ user.title }}</div>
+    <p v-for="(item, index) in news" :key="index">
+      <a :href="item.url">{{ item.title }}</a>
+      <small>
+        {{ item.time_ago }} by
+        <router-link :to="`/user/${item.user}`">{{ item.user }}</router-link>
+      </small>
+    </p>
   </div>
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState } from 'vuex';
 
 export default {
   computed: {
