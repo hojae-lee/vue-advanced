@@ -18,13 +18,7 @@ export default {
     })
   },
   created() {
-    // console.log(this.$route.params.id);
-
     this.$store.dispatch('FETCH_USER', this.$route.params.id);
-
-    // axios.get(`https://api.hnpwa.com/v0/user/${this.$route.params.id}.json`)
-    // .then(res => this.users = res.data)
-    // .catch(err => console.log(err))
   }
 }
 </script>

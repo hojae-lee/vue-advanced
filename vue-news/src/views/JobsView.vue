@@ -8,16 +8,13 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapGetters } from 'vuex';
 
 export default {
   computed: {
-    ...mapState({
-      jobs: state => state.jobs
+    ...mapGetters({
+      jobs: 'fetchedJob'
     })
-    // jobs() {
-    //   return this.$store.state.jobs;
-    // }
   },
   created() {
     this.$store.dispatch('FETCH_JOB');

@@ -11,12 +11,12 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapGetters } from 'vuex';
 
 export default {
   computed: {
-    ...mapState({
-      news: state => state.news
+    ...mapGetters({
+      news: 'fetchedNews'
     })
   },
   created() {
