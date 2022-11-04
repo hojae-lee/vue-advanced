@@ -47,7 +47,6 @@ export default {
           break;
         default:
       }
-      debugger;
       return this.$store.getters[list];
 
     }

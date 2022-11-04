@@ -1,17 +1,21 @@
 <template>
   <div>
-    <p>name: {{ fetchedUser.id }}</p>
-    <p>karma: {{ fetchedUser.karma }}</p>
-    <p>created: {{ fetchedUser.created }}</p>
-    <p></p>
-    <p></p>
+    <user-profile :info="fetchedUser">
+      <div slot="username">{{ fetchedUser.id }}</div>
+      <span slot="time">{{ 'Joined ' + fetchedUser.created }}, </span>
+      <span slot="karma">{{ fetchedUser.karma }}</span>
+    </user-profile>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
+import UserProfile from '@/components/UserProfile.vue';
 
 export default {
+  components: {
+    UserProfile
+  },
   computed: {
     ...mapGetters({
       fetchedUser: 'fetchedUser'
@@ -23,6 +27,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.container {
+  padding: 0 0.5rem;
+}
 </style>
