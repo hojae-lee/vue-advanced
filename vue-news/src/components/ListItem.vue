@@ -31,45 +31,28 @@
 export default {
   computed: {
     listItems() {
-      const name = this.$route.name;
-
-      let list = '';
-
-      switch (name) {
-        case 'news':
-          list = 'fetchedNews';
-          break;
-        case 'ask':
-          list = 'fetchedAsk';
-          break;
-        case 'jobs':
-          list = 'fetchedJob';
-          break;
-        default:
-      }
-      return this.$store.getters[list];
-
+      return this.$store.getters['fetchedList'];
     }
   },
-  created() {
-    const name = this.$route.name;
+  // created() {
+  //   const name = this.$route.name;
 
-    let actions = '';
+  //   let actions = '';
 
-    switch (name) {
-      case 'news':
-        actions = 'FETCH_NEWS';
-        break;
-      case 'ask':
-        actions = 'FETCH_ASK';
-        break;
-      case 'jobs':
-        actions = 'FETCH_JOB';
-        break;
-      default:
-    }
-    this.$store.dispatch(actions);
-  }
+  //   switch (name) {
+  //     case 'news':
+  //       actions = 'FETCH_NEWS';
+  //       break;
+  //     case 'ask':
+  //       actions = 'FETCH_ASK';
+  //       break;
+  //     case 'jobs':
+  //       actions = 'FETCH_JOB';
+  //       break;
+  //     default:
+  //   }
+  //   this.$store.dispatch(actions);
+  // }
 }
 </script>
 
