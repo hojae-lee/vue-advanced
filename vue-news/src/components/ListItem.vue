@@ -33,26 +33,7 @@ export default {
     listItems() {
       return this.$store.getters['fetchedList'];
     }
-  },
-  // created() {
-  //   const name = this.$route.name;
-
-  //   let actions = '';
-
-  //   switch (name) {
-  //     case 'news':
-  //       actions = 'FETCH_NEWS';
-  //       break;
-  //     case 'ask':
-  //       actions = 'FETCH_ASK';
-  //       break;
-  //     case 'jobs':
-  //       actions = 'FETCH_JOB';
-  //       break;
-  //     default:
-  //   }
-  //   this.$store.dispatch(actions);
-  // }
+  }
 }
 </script>
 
