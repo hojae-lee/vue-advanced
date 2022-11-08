@@ -27,15 +27,14 @@ export const router = new VueRouter({
       name: 'news',
       component: NewsView,
       // component: createListView('NewsView'),
-      beforeEnter: (to, from, next) => {
-        bus.$emit('start:spinner');
-        store.dispatch('FETCH_LIST', to.name)
-          .then(() => {
-            next();
-          })
-          .catch(err => {
-            console.log(err);
-          });
+      beforeEnter: async (to, from, next) => {
+        try {
+          bus.$emit('start:spinner');
+          await store.dispatch('FETCH_LIST', to.name);
+          next();
+        } catch (error) {
+          console.log(err);
+        }
       }
     },
     {
@@ -43,15 +42,14 @@ export const router = new VueRouter({
       name: 'ask',
       component: AskView,
       // component: createListView('AskView'),
-      beforeEnter: (to, from, next) => {
-        bus.$emit('start:spinner');
-        store.dispatch('FETCH_LIST', to.name)
-          .then(() => {
-            next();
-          })
-          .catch(err => {
-            console.log(err);
-          });
+      beforeEnter: async (to, from, next) => {
+        try {
+          bus.$emit('start:spinner');
+          await store.dispatch('FETCH_LIST', to.name);
+          next();
+        } catch (error) {
+          console.log(err);
+        }
       }
     },
     {
@@ -59,15 +57,14 @@ export const router = new VueRouter({
       name: 'jobs',
       component: JobsView,
       // component: createListView('JobsView'),
-      beforeEnter: (to, from, next) => {
-        bus.$emit('start:spinner');
-        store.dispatch('FETCH_LIST', to.name)
-          .then(() => {
-            next();
-          })
-          .catch(err => {
-            console.log(err);
-          });
+      beforeEnter: async (to, from, next) => {
+        try {
+          bus.$emit('start:spinner');
+          await store.dispatch('FETCH_LIST', to.name);
+          next();
+        } catch (error) {
+          console.log(err);
+        }
       }
     },
     {

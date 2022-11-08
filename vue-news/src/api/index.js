@@ -6,16 +6,31 @@ const config = {
 };
 
 // API 함수들을 정리
-function fetchList(pageName) {
-  return axios.get(`${config.baseUrl}${pageName}/1.json`);
+async function fetchList(pageName) {
+  try {
+    const res = await axios.get(`${config.baseUrl}${pageName}/1.json`);
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
-function fetchUserInfo(username) {
-  return axios.get(`${config.baseUrl}user/${username}.json`);
+async function fetchUserInfo(username) {
+  try {
+    const res = await axios.get(`${config.baseUrl}user/${username}.json`);
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
-function fetchItemInfo(id) {
-  return axios.get(`${config.baseUrl}item/${id}.json`);
+async function fetchItemInfo(id) {
+  try {
+    const res = await axios.get(`${config.baseUrl}item/${id}.json`);
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 export {
